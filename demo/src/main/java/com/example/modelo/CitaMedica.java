@@ -1,4 +1,7 @@
 package com.example.modelo;
+
+import java.util.Date;
+
 /**
  *
  * @author Victor
@@ -8,7 +11,7 @@ public class CitaMedica{
     private int id;
     private String titulo; // Título de la cita
     private String doctor; // Nombre del doctor
-    private String fechaHora; // Fecha y hora en formato adecuado
+    private Date fechaHora; // Fecha y hora en formato adecuado
 
     // Constructor
     public CitaMedica(String titulo, String doctor, String fechaHora) {
