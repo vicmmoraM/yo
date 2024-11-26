@@ -15,6 +15,12 @@ public class ActividadFisica {
     private String actividad; // Ahora es un String con valor predeterminado
     private int duracion; // Duración en minutos
     private String horario; // Mañana, Tarde o Noche
+    
+    public ActividadFisica(String fecha, String actividad, int duracion) {
+        this.fecha = fecha;
+        this.actividad = actividad;
+        this.duracion = duracion;
+    }
 
     // Getters
     public int getId() {
