@@ -29,4 +29,9 @@ public class Perfil {
     public int getCodigo() {
         return codigo;
     }
+
+    @Override
+    public String toString() {
+        return "Perfil [nombre=" + nombre + ", relacion=" + relacion + ", email=" + email + ", codigo=" + codigo + "]";
+    }
 }
