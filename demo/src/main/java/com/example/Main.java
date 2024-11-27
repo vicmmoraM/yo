@@ -8,5 +8,6 @@ public class Main {
         ControladorPerfil controlador = new ControladorPerfil();
         VistaPerfil vista = new VistaPerfil(controlador);
         vista.mostrarListaPerfiles();
+        vista.mostrarOpciones();
     }
 }
