@@ -11,10 +11,10 @@ import java.util.*;
 
 import com.example.modelo.ActividadFisica;
 public class ActividadFisicaControlador {
-    private List<ActividadFisica> lstacActividadFisicas;
+    private ArrayList<ActividadFisica> lstacActividadFisicas;
 
     public ActividadFisicaControlador(){
-        this.lstacActividadFisicas = new ArrayList<>(); //Inicializar lista
+        lstacActividadFisicas = new ArrayList<>(); //Inicializar lista
 
         ordenarActividadesPorFecha();
     }

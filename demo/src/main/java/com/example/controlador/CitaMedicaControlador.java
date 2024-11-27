@@ -2,12 +2,11 @@ package com.example.controlador;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import com.example.modelo.CitaMedica;
 
 public class CitaMedicaControlador {
-    List<CitaMedica> lstCitaMedicas;
+    ArrayList<CitaMedica> lstCitaMedicas;
 
     public CitaMedicaControlador(){
         this.lstCitaMedicas = new ArrayList<>();

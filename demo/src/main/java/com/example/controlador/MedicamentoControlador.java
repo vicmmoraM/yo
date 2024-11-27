@@ -16,7 +16,7 @@ public class MedicamentoControlador {
         System.out.println("Medicamento añadido exitosamente.");
     }
 
-    public List<Medicamento> listarMedicamentos() {
+    public ArrayList<Medicamento> listarMedicamentos() {
         return medicamentos;
     }
 
