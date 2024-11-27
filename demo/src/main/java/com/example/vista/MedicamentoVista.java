@@ -6,7 +6,7 @@ public class MedicamentoVista {
     private MedicamentoControlador controlador;
     private Scanner scanner;
 
-    public CitaMedicaControlador(MedicamentoControlador controlador){
+    public MedicamentoVista(MedicamentoControlador controlador){
         this.controlador = controlador;
         this.scanner = new Scanner(System.in);
     }
