@@ -21,60 +21,99 @@ public class VistaPerfil {
         }
     }
 
+    private void crearPerfil(Scanner sc) {
+        System.out.println("\n--- Crear Perfil ---");
+        System.out.print("Ingrese el nombre del perfil: ");
+        String nombre = sc.nextLine();
+        System.out.print("Ingrese la relación (ejemplo: amigo, hija, etc.): ");
+        String relacion = sc.nextLine();
+        System.out.print("Ingrese el correo electrónico: ");
+        String email = sc.nextLine();
+
+        MensajeUsuario mensaje = controlador.agregarPerfil(nombre, relacion, email);
+        System.out.println(mensaje.getMensaje());
+    }
+
+    private void seleccionarPerfil(Scanner sc) {
+        System.out.println("\n--- Seleccionar Perfil ---");
+        mostrarListaPerfiles();
+        System.out.print("Ingrese el código del perfil que desea seleccionar: ");
+        int codigo = Integer.parseInt(sc.nextLine());
+        Perfil perfilSeleccionado = controlador.seleccionarPerfil(codigo);
+        if (perfilSeleccionado != null) {
+            System.out.println("Perfil seleccionado: " + perfilSeleccionado);
+        } else {
+            System.out.println("No se encontró un perfil con ese código.");
+        }
+    }
+    
     public void mostrarOpciones(){
         Scanner sc = new Scanner(System.in);
+        String opcion;
 
-        while (true) { // Bucle infinito
-            System.out.println("Opciones:");
+        do{
+            System.out.println("\n--- Menú de Perfiles ---");
             System.out.println("a. Crear perfil");
             System.out.println("b. Seleccionar perfil");
-            System.out.println("c. Salir");
+            System.out.println("c. Mostrar lista de perfiles");
+            System.out.println("d. Salir");
             System.out.print("Ingrese una opción: ");
-            String opcion = sc.nextLine().toLowerCase();
+            opcion = sc.nextLine().toLowerCase();
 
-            if ("a".equals(opcion)) {
-                crearPerfil();
-            } else if ("b".equals(opcion)) {
-                seleccionarPerfil();
-            } else if ("c".equals(opcion)) {
-                System.out.println("Saliendo...");
-                return; // Termina el método y, por ende, el bucle
-            } else {
-                System.out.println("Opción inválida. Intente de nuevo.");
+            switch (opcion) {
+                case "a":
+                    crearPerfil(sc);
+                    break;
+                case "b":
+                    seleccionarPerfil(sc);
+                    Perfil ps = controlador.seleccionarPerfil(Integer.parseInt(sc.nextLine()));
+                    if (ps != null) {
+                        mostrarMenuSeleccionar(sc, ps);
+                    } else {
+                        System.out.println("No se encontró un perfil con ebse código.");
+                    }
+                    break;
+                case "c":
+                    mostrarListaPerfiles(); 
+                    break;
+                case "d":
+                    System.out.println("Saliendo del menú de perfiles...");
+                    break; // Salir del menú
+                default:
+                    System.out.println("Opción inválida. Intente de nuevo.");
             }
-        }
+        } while (!"d".equals(opcion));
+    } 
+    
+    private void mostrarMenuSeleccionar(Scanner sc, Perfil perfilSeleccionado){
+        String opcion;
+        do{
+            System.out.println("\n--- Menú del Perfil Seleccionado ---");
+            System.out.println("1. Administrar Medicamentos");
+            System.out.println("2. Administrar Médicos");
+            System.out.println("3. Administrar Citas Medicas");
+            System.out.println("4. Addministrar Actividad Fisica");
+            opcion = sc.nextLine();
 
-    }
+            switch (opcion) {
+                case "1":
+                    MedicamentoControlador mc = new MedicamentoControlador();
+                    MedicamentoVista mv = new MedicamentoVista(mc);
+                    mv.mostrarMenuMedicamentos();
+                    break;
+                case "2":
 
-    private void crearPerfil() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese el nombre: ");
-        String nombre = scanner.nextLine();
-        System.out.print("Ingrese la relación: ");
-        String relacion = scanner.nextLine();
-        System.out.print("Ingrese el email: ");
-        String email = scanner.nextLine();
+                    break;
+                case "3":
 
-        MensajeUsuario resultado = controlador.agregarPerfil(nombre, relacion, email);
-        if (resultado == null) {
-            System.out.println("Perfil creado exitosamente.");
-        } else {
-            System.out.println(resultado.getMensaje());
-        }
-    }
+                    break;
+                case "4":
 
-    private void seleccionarPerfil() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese el código del perfil: ");
-        int codigo = scanner.nextInt();
-        scanner.nextLine(); 
+                    break;
+                default:
+                    break;
+            }
+        }while (!"4".equals(opcion));
 
-        Perfil perfil = controlador.seleccionarPerfil(codigo);
-        if (perfil != null) {
-            System.out.println("Perfil seleccionado:");
-            System.out.println(perfil.toString());
-        } else {
-            System.out.println("Perfil no encontrado.");
-        }
     }
 }

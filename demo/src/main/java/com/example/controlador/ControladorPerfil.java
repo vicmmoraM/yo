@@ -17,6 +17,7 @@ public class ControladorPerfil {
         listaPerfiles.add(new Perfil("Carolina Sánchez","Hija","carisanc@espol.edu.ec"));
     }
 
+    
     public MensajeUsuario agregarPerfil(String nombre, String relacion, String email){
         if (buscarPerfilPorNombre(nombre) == null) {
             Perfil nuevoPerfil = new Perfil(nombre, relacion, email);
