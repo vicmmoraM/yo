@@ -11,7 +11,7 @@ public class MedicamentoControlador {
         medicamentos = new ArrayList<>();
     }
 
-    public void agregarMedicamento(String nombre, String presentacion, int cantidad, String frecuencia, List<String> horasToma, int dosis) {
+    public void agregarMedicamento(String nombre, String presentacion, int cantidad, String frecuencia, ArrayList<String> horasToma, int dosis) {
         medicamentos.add(new Medicamento(nombre, presentacion, cantidad, frecuencia, horasToma, dosis));
         System.out.println("Medicamento añadido exitosamente.");
     }

@@ -1,6 +1,6 @@
 package com.example.modelo;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Medicamento {
     private static int contador = 0; // Contador para IDs únicos
@@ -9,11 +9,11 @@ public class Medicamento {
     private String presentacion; // Presentación del medicamento (pastilla, inyección, etc.)
     private int cantidad; // Cantidad disponible en el inventario
     private String frecuencia; // Frecuencia (ej. Cada día, Cada x días, etc.)
-    private List<String> horasToma; // Lista de horas para las tomas diarias
+    private ArrayList<String> horasToma; // Lista de horas para las tomas diarias
     private int dosis; // Dosis para cada toma
 
     // Constructor
-    public Medicamento(String nombre, String presentacion, int cantidad, String frecuencia, List<String> horasToma, int dosis) {
+    public Medicamento(String nombre, String presentacion, int cantidad, String frecuencia, ArrayList<String> horasToma, int dosis) {
         this.id = ++contador;
         this.nombre = nombre;
         this.presentacion = presentacion;
@@ -44,7 +44,7 @@ public class Medicamento {
         return frecuencia;
     }
 
-    public List<String> getHorasToma() {
+    public ArrayList<String> getHorasToma() {
         return horasToma;
     }
 
