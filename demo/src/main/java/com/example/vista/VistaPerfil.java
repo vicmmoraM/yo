@@ -93,16 +93,19 @@ public class VistaPerfil {
             System.out.println("2. Administrar Médicos");
             System.out.println("3. Administrar Citas Medicas");
             System.out.println("4. Addministrar Actividad Fisica");
+            System.out.println("5. Salir");
             opcion = sc.nextLine();
 
             switch (opcion) {
                 case "1":
-                    MedicamentoControlador mc = new MedicamentoControlador();
-                    MedicamentoVista mv = new MedicamentoVista(mc);
+                    MedicamentoControlador MedicamentoC = new MedicamentoControlador();
+                    MedicamentoVista mv = new MedicamentoVista(MedicamentoC);
                     mv.mostrarMenuMedicamentos();
                     break;
                 case "2":
-
+                    MedicoControlador MedicoC = new MedicoControlador();
+                    MedicoVista mvv = new MedicoVista(MedicoC);
+                    mvv.MostrarMenuMedico();
                     break;
                 case "3":
 
@@ -110,10 +113,13 @@ public class VistaPerfil {
                 case "4":
 
                     break;
-                default:
+                case "5":
+                        System.out.println("Saliendo...");
                     break;
+                default:
+                    
             }
-        }while (!"4".equals(opcion));
+        }while (!"5".equals(opcion));
 
     }
 }
