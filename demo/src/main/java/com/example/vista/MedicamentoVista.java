@@ -55,17 +55,29 @@ public class MedicamentoVista {
     }
 
     private void registrarToma() {
-        listarMedicamentos();
-        System.out.print("\nIngrese el ID del medicamento que desea registrar la toma: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        listarMedicamentos(); // Muestra la lista de medicamentos disponibles
+    System.out.print("\nIngrese el ID del medicamento que desea registrar la toma: ");
+    int id = Integer.parseInt(scanner.nextLine());
+    
+    // Verifica si el medicamento con el ID ingresado existe
+    Medicamento medicamentoSeleccionado = controlador.buscarMedicamentoPorId(id);
+    
+    if (medicamentoSeleccionado != null) {
+        
         System.out.print("Ingrese la cantidad tomada: ");
         int cantidadTomada = Integer.parseInt(scanner.nextLine());
+
+        
         boolean registrado = controlador.registrarToma(id, cantidadTomada);
         if (registrado) {
             System.out.println("Toma registrada exitosamente.");
         } else {
-            System.out.println("Error al registrar la toma.");
+            System.out.println("Error al registrar la toma. No hay suficiente cantidad.");
         }
+    } else {
+        
+        System.out.println("El ID ingresado no corresponde a un medicamento registrado.");
+    }
     }
 
     public void mostrarMenuMedicamentos() {
