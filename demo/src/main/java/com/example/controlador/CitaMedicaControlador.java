@@ -6,7 +6,7 @@ import java.util.Date;
 import com.example.modelo.CitaMedica;
 
 public class CitaMedicaControlador {
-    ArrayList<CitaMedica> lstCitaMedicas;
+    private ArrayList<CitaMedica> lstCitaMedicas;
 
     public CitaMedicaControlador(){
         this.lstCitaMedicas = new ArrayList<>();
@@ -20,5 +20,9 @@ public class CitaMedicaControlador {
     public void agregarCita(String titulo, String doctor, Date fechaHora) {
         lstCitaMedicas.add(new CitaMedica(titulo, doctor, fechaHora));
         System.out.println("Cita médica añadida exitosamente.");
+    }
+
+    public ArrayList<CitaMedica> getCitaMedicas(){
+        return lstCitaMedicas;
     }
 }
