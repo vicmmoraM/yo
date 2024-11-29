@@ -81,8 +81,8 @@ public class MedicamentoVista {
     }
 
     public void mostrarMenuMedicamentos() {
-        String opcion;
-        do {
+        String opcion = "";
+        while (!"5".equals(opcion)) {
             System.out.println("\n--- Menú de Medicamentos ---");
             System.out.println("1. Listar Medicamentos");
             System.out.println("2. Añadir Medicamento");
@@ -91,26 +91,19 @@ public class MedicamentoVista {
             System.out.println("5. Salir");
             System.out.print("Ingrese una opción: ");
             opcion = scanner.nextLine();
-
-            switch (opcion) {
-                case "1":
-                    listarMedicamentos();
-                    break;
-                case "2":
-                    añadirMedicamento();
-                    break;
-                case "3":
-                    eliminarMedicamento();
-                    break;
-                case "4":
-                    registrarToma();
-                    break;
-                case "5":
-                    System.out.println("Saliendo del menú de medicamentos...");
-                    break;
-                default:
-                    System.out.println("Opción inválida. Intente de nuevo.");
+            if ("1".equals(opcion)) {
+                listarMedicamentos();
+            } else if ("2".equals(opcion)) {
+                añadirMedicamento();
+            } else if ("3".equals(opcion)) {
+                eliminarMedicamento();
+            } else if ("4".equals(opcion)) {
+                registrarToma();
+            } else if ("5".equals(opcion)) {
+                System.out.println("Saliendo del menú de medicamentos...");
+            } else {
+                System.out.println("Opción inválida. Intente de nuevo.");
             }
-        } while (!"5".equals(opcion));
-    }
+        }
+    }    
 }

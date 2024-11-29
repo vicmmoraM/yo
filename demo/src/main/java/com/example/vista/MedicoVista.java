@@ -47,27 +47,24 @@ public class MedicoVista {
     }
 
     public void MostrarMenuMedico(){
-        String opcion;
-        do{
-            System.out.println("\n--- Menú de Medicos ---");
+        String opcion = "";
+        while(!"3".equals(opcion)){
+            System.out.println("\n--- Menú de Médicos ---");
             System.out.println("1. Listado de Médicos");
             System.out.println("2. Añadir Médico");
             System.out.println("3. Salir");
-            System.out.println("");
+            System.out.print("Ingrese una opción: ");
             opcion = scanner.nextLine();
-            switch (opcion) {
-                case "1":
-                    listarMedicos();
-                    break;
-                case "2":
-                    añadirMedico();
-                    break;
-                case "3":
-                    System.out.println("Saliendo del menú de medicamentos...");
-                    break;
-                default:
-                    System.out.println("Opción inválida. Intente de nuevo.");
+
+            if("1".equals(opcion)){
+                listarMedicos();
+            } else if ("2".equals(opcion)) {
+                añadirMedico();
+            } else if ("3".equals(opcion)) {
+                System.out.println("Saliendo del menú de médicos...");
+            } else {
+                System.out.println("Opción inválida. Intente de nuevo.");
             }
-        }while(!"3".equals(opcion));
+        }
     }
 }

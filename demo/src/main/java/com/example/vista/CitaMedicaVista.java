@@ -27,29 +27,25 @@ public class CitaMedicaVista {
 
 
     public void MostrarMenuCitas(){
-        String opcion;
-        do{
+        String opcion = "";
+        while (!"3".equals(opcion)) {
             System.out.println("\n--- Menú de Citas Médicas ---");
             System.out.println("1. Listado de Citas");
             System.out.println("2. Agregar Cita");
             System.out.println("3. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextLine();
-            scanner.nextLine();
 
-            switch (opcion) {
-                case "1":
-                    listarCitas();
-                    break;
-                case "2":
-                    //método agregar
-                    break;
-                case "3":
-                    System.out.println("Saliendo...");
-                    break;
-                default:
-                    
+            if ("1".equals(opcion)) {
+                listarCitas();
+            } else if ("2".equals(opcion)) {
+                // Método agregar
+            
+            } else if ("3".equals(opcion)) {
+                System.out.println("Saliendo...");
+            } else {
+                System.out.println("Opción no válida. Intente nuevamente.");
             }
-        }while(!"3".equals(opcion));
+        }
     }
 }

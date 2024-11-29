@@ -49,9 +49,9 @@ public class VistaPerfil {
     
     public void mostrarOpciones(){
         Scanner sc = new Scanner(System.in);
-        String opcion;
+        String opcion = "";
 
-        do{
+        while (!"d".equals(opcion)) {
             System.out.println("\n--- Menú de Perfiles ---");
             System.out.println("a. Crear perfil");
             System.out.println("b. Seleccionar perfil");
@@ -60,66 +60,56 @@ public class VistaPerfil {
             System.out.print("Ingrese una opción: ");
             opcion = sc.nextLine().toLowerCase();
 
-            switch (opcion) {
-                case "a":
-                    crearPerfil(sc);
-                    break;
-                case "b":
-                    seleccionarPerfil(sc);
-                    Perfil ps = controlador.seleccionarPerfil(Integer.parseInt(sc.nextLine()));
-                    if (ps != null) {
-                        mostrarMenuSeleccionar(sc, ps);
-                    } else {
-                        System.out.println("No se encontró un perfil con ebse código.");
-                    }
-                    break;
-                case "c":
-                    mostrarListaPerfiles(); 
-                    break;
-                case "d":
-                    System.out.println("Saliendo del menú de perfiles...");
-                    break; // Salir del menú
-                default:
-                    System.out.println("Opción inválida. Intente de nuevo.");
+            if ("a".equals(opcion)) {
+                crearPerfil(sc);
+            } else if ("b".equals(opcion)) {
+                seleccionarPerfil(sc);
+                Perfil ps = controlador.seleccionarPerfil(Integer.parseInt(sc.nextLine()));
+            if (ps != null) {
+                mostrarMenuSeleccionar(sc, ps);
+            } else {
+                System.out.println("No se encontró un perfil con ese código.");
             }
-        } while (!"d".equals(opcion));
+            } else if ("c".equals(opcion)) {
+                mostrarListaPerfiles();
+            } else if ("d".equals(opcion)) {
+                System.out.println("Saliendo del menú de perfiles...");
+            } else {
+                System.out.println("Opción inválida. Intente de nuevo.");
+            }
+        }
     } 
     
     private void mostrarMenuSeleccionar(Scanner sc, Perfil perfilSeleccionado){
-        String opcion;
-        do{
+        String opcion = "";
+
+        while (!"5".equals(opcion)) {
             System.out.println("\n--- Menú del Perfil Seleccionado ---");
             System.out.println("1. Administrar Medicamentos");
             System.out.println("2. Administrar Médicos");
-            System.out.println("3. Administrar Citas Medicas");
-            System.out.println("4. Addministrar Actividad Fisica");
+            System.out.println("3. Administrar Citas Médicas");
+            System.out.println("4. Administrar Actividad Física");
             System.out.println("5. Salir");
+            System.out.print("Ingrese una opción: ");
             opcion = sc.nextLine();
 
-            switch (opcion) {
-                case "1":
-                    MedicamentoControlador MedicamentoC = new MedicamentoControlador();
-                    MedicamentoVista mv = new MedicamentoVista(MedicamentoC);
-                    mv.mostrarMenuMedicamentos();
-                    break;
-                case "2":
-                    MedicoControlador MedicoC = new MedicoControlador();
-                    MedicoVista mvv = new MedicoVista(MedicoC);
-                    mvv.MostrarMenuMedico();
-                    break;
-                case "3":
-                    
-                    break;
-                case "4":
-
-                    break;
-                case "5":
-                        System.out.println("Saliendo...");
-                    break;
-                default:
-                    
+            if ("1".equals(opcion)) {
+                MedicamentoControlador medicamentoC = new MedicamentoControlador();
+                MedicamentoVista mv = new MedicamentoVista(medicamentoC);
+                mv.mostrarMenuMedicamentos();
+            } else if ("2".equals(opcion)) {
+                MedicoControlador medicoC = new MedicoControlador();
+                MedicoVista mvv = new MedicoVista(medicoC);
+                mvv.MostrarMenuMedico();
+            } else if ("3".equals(opcion)) {
+                // Lógica para administrar citas médicas
+            } else if ("4".equals(opcion)) {
+                // Lógica para administrar actividad física
+            } else if ("5".equals(opcion)) {
+                System.out.println("Saliendo...");
+            } else {
+                System.out.println("Opción no válida. Intente de nuevo.");
             }
-        }while (!"5".equals(opcion));
-
+        }
     }
 }
