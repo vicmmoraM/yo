@@ -104,7 +104,9 @@ public class VistaPerfil {
             } else if ("3".equals(opcion)) {
                 // Lógica para administrar citas médicas
             } else if ("4".equals(opcion)) {
-                // Lógica para administrar actividad física
+                ActividadFisicaControlador actividadFC = new ActividadFisicaControlador();
+                ActividadFisicaVista actividadFisicaVista = new ActividadFisicaVista(actividadFC);
+                actividadFisicaVista.mostrarMenuActividadFisica();
             } else if ("5".equals(opcion)) {
                 System.out.println("Saliendo...");
             } else {

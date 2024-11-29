@@ -3,8 +3,6 @@ package com.example.vista;
 import com.example.controlador.*;
 import com.example.modelo.CitaMedica;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 public class CitaMedicaVista {
     private CitaMedicaControlador controlador;

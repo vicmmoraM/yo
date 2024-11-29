@@ -16,10 +16,11 @@ public class ActividadFisica {
     private int duracion; // Duración en minutos
     private String horario; // Mañana, Tarde o Noche
     
-    public ActividadFisica(String fecha, String actividad, int duracion) {
+    public ActividadFisica(String fecha, String actividad, int duracion, String horario) {
         this.fecha = fecha;
         this.actividad = actividad;
         this.duracion = duracion;
+        this.horario = horario;
     }
 
     // Getters
