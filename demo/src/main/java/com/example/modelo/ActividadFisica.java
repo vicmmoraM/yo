@@ -4,8 +4,6 @@
  */
 package com.example.modelo;
 
-import java.util.Date;
-
 /**
  *
  * @author Victor
@@ -13,12 +11,12 @@ import java.util.Date;
 public class ActividadFisica {
     private static int contador = 0; // Contador para IDs únicos
     private int id;
-    private Date fecha; // Fecha en formato dd-MM-yyyy
+    private String fecha; // Fecha en formato dd-MM-yyyy
     private String actividad; // Ahora es un String con valor predeterminado
     private int duracion; // Duración en minutos
     private String horario; // Mañana, Tarde o Noche
     
-    public ActividadFisica(Date fecha, String actividad, int duracion) {
+    public ActividadFisica(String fecha, String actividad, int duracion) {
         this.fecha = fecha;
         this.actividad = actividad;
         this.duracion = duracion;
@@ -29,7 +27,7 @@ public class ActividadFisica {
         return id;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 

@@ -5,6 +5,8 @@
 package com.example.vista;
 import com.example.controlador.*;
 import com.example.modelo.*;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -20,28 +22,43 @@ public class ActividadFisicaVista {
         this.scanner = new Scanner(System.in);
     }
 
-    public void mostrarMenu(){
-        int opcion;
-        do{
-            System.out.println("\n--- Menú de Actividad Física ---");
-            System.out.println("1. Registrar Actividad");
-            System.out.println("2. Listar Actividades");
+    private void ListadoAcF(){
+        ArrayList<ActividadFisica> actividades = controlador.getActividadesOrdenadas();
+
+        // Verificar si hay actividades registradas
+        if (actividades.isEmpty()) {
+            System.out.println("No se han registrado actividades físicas.");
+        } else {
+            // Mostrar las actividades
+            System.out.println("\n--- Listado de Actividades Físicas ---");
+            for (ActividadFisica actividad : actividades) {
+                System.out.println(actividad); // Llamará al método toString() de ActividadFisica
+            }   
+        }
+    }
+
+
+    private void registrarActividad(){
+        
+    }
+    public void mostrarMenuActividadFisica(){
+        String opcion = "";
+        while(!"3".equals(opcion)){
+            System.out.println("\n--- Menú de Actividades Fisicas ---");
+            System.out.println("1. Listado de Actividades Fisicas");
+            System.out.println("2. Registrar Actividad Fisica");
             System.out.println("3. Salir");
             System.out.print("Seleccione una opción: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar buffer
-            if(opcion == 1){
-                //registrarActividad();
+            opcion = scanner.nextLine();
+            if("1".equals(opcion)){
+                ListadoAcF();
+            } else if("2".equals(opcion)){
+
+            } else if ("3".equals(opcion)) {
+                System.out.println("Saliendo...");
+            } else {
+                System.out.println("Opción no válida. Intente nuevamente.");
             }
-            else if (opcion == 2){
-                controlador.getActividadesOrdenadas();
-            }
-            else if (opcion == 3){
-                System.out.println("Saliendo del menú de actividad física...");
-            } 
-            else{
-                System.out.println("Opción no válida, intente nuevamente");
-            }
-            } while(opcion != 3);
+        }
     }
 }

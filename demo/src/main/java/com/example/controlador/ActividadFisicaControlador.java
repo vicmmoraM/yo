@@ -27,7 +27,7 @@ public class ActividadFisicaControlador {
         lstacActividadFisicas.sort((a1, a2) -> a2.getFecha().compareTo(a1.getFecha())); 
     }
 
-    public List<ActividadFisica> getActividadesOrdenadas() {
+    public ArrayList<ActividadFisica> getActividadesOrdenadas() {
         return lstacActividadFisicas;
     }
 }

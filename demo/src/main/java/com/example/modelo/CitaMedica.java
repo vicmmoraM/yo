@@ -11,10 +11,10 @@ public class CitaMedica{
     private int id;
     private String titulo; // Título de la cita
     private String doctor; // Nombre del doctor
-    private Date fechaHora; // Fecha y hora en formato adecuado
+    private String fechaHora; // Fecha y hora en formato adecuado
 
     // Constructor
-    public CitaMedica(String titulo, String doctor, Date fechaHora) {
+    public CitaMedica(String titulo, String doctor, String fechaHora) {
         this.id = ++contador;
         this.titulo = titulo;
         this.doctor = doctor;
@@ -34,7 +34,7 @@ public class CitaMedica{
         return doctor;
     }
 
-    public Date getFechaHora() {
+    public String getFechaHora() {
         return fechaHora;
     }
 
